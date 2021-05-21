@@ -16,6 +16,6 @@ Modify the `mapping` array to include all of your active pins and their respecti
 
 If you have two pads in a doubles set, you'll want to set the pads' arrow buttons to be different keys (for example, `wasd` for the left pad and `ijkl` for the right pad).
 
-If you're not sure how your pins are connected, you can uncomment the `#define DEBUG` line and then run the sketch with the serial monitor enabled, and it'll give you a continuous display of which pins are currently active. Just remember to disable debug mode (i.e. comment the `#define` back out) before you start using the pad for actual gameplay; it's *probably* fine to leave it enabled but why add extra latency?
+If you're not sure how your pins are connected, you can uncomment the `#define DEBUG` line and then run the sketch with the serial monitor enabled, and it'll give you a continuous display of which pins are currently active. Just remember to disable debug mode (i.e. comment the `#define` back out) before you start using the pad for actual gameplay; leaving it enabled will vastly lower your input sampling rate.
 
 Debouncing is on a per-switch basis so it shouldn't be necessary to make it shorter than 20ms (which allows a peak of 25 steps per second on a single switch) but it's probably safe to reduce it further. The minimum safe debounce time will depend a lot on your individual pad. This particular (simple) debounce implementation will never add latency to an initial step.
