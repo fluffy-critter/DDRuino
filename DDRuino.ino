@@ -11,7 +11,7 @@
 //#define DEBUG
 
 //! Debounce time in milliseconds
-constexpr int debounceTime = 20;
+constexpr int debounceTime = 10;
 
 //! Input button
 struct Input {
@@ -63,8 +63,8 @@ void loop()
     Serial.print('\n');
 #endif
 
+    unsigned long now = millis();
     for (auto& i : mapping) {
-        unsigned long now = millis();
         bool val = !digitalRead(i.pin);
         if (val != i.pressed && (i.lastChange + debounceTime) < now) {
             if (val) {
